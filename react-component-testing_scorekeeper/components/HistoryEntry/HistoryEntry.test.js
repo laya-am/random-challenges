@@ -19,7 +19,7 @@ test("renders name of game and 'show score' button only", () => {
   expect(nameOfGame).toBeInTheDocument();
   expect(button).toBeInTheDocument();
 });
-
+ 
 test("renders player names and scores after button click", async () => {
   render(
     <HistoryEntry

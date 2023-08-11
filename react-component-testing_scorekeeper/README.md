@@ -29,7 +29,7 @@ Your task is to run `npm run test`, write the test implementations and make the 
 
 > 💡 Note that, at the beginning, all tests passes (except the two in `HistoryEntry`) because the testing blocks are empty. This will change while you are implementing the test.
 
-#### HistoryEntry
+#### HistoryEntry 
 
 Before writing your first component test, your task is to read and understand existing tests. Afterwards you should be able to fix the bug in the tested component.
 
