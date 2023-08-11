@@ -6,7 +6,7 @@ jest.mock("next/router", () => ({
     return { pathname: jest.fn() };
   },
 }));
-
+ 
 test("renders with two links 'Play' and 'History'", () => {
   render(<Navigation players={[
     { name: "John", score: 2, id: "xyz" },

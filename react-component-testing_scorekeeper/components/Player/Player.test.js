@@ -15,7 +15,7 @@ test("renders player information and two buttons", () => {
     expect(score).toBeInTheDocument()
 });
 
-
+ 
 test("calls callbacks when increasing or decreasing score", async () => {
 const mockDecFunc = jest.fn();
 const mockIncFunc = jest.fn();

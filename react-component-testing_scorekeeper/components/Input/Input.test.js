@@ -13,7 +13,7 @@ test("renders a label and an input with the correct attributes", () => {
     expect(input).toHaveAttribute("type", "text")
     // expect(input).toHaveAttribute("value", "value")
     // expect(label).toHaveAttribute("htmlFor", "email")
-});
+}); 
 
 test("calls callback on every user input", async () => {
     const handleChange = jest.fn();
