@@ -16,13 +16,13 @@ test("renders player information and two buttons", () => {
 });
 
 
-test("calls callbacks when increasing or decreasing score", async () => {});
+test("calls callbacks when increasing or decreasing score", async () => {
 const mockDecFunc = jest.fn();
 const mockIncFunc = jest.fn();
 
 render(<Player onDecreasePlayerScore={mockDecFunc} onIncreasePlayerScore={mockIncFunc} />)
-const decButton = screen.getByRole("button", {name: "-"})
-const incButton = screen.getByRole("button", {name: "+"})
+const decButton = screen.getByRole("button", {name: "Decrease Score"})
+const incButton = screen.getByRole("button", {name: "Increase Score"})
 
 const user = userEvent.setup();
 
@@ -32,3 +32,5 @@ await user.click(decButton);
 
 expect(mockIncFunc).toHaveBeenCalledTimes(1)
 expect(mockDecFunc).toHaveBeenCalledTimes(2)
+
+});
