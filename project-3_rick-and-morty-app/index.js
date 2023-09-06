@@ -5,9 +5,7 @@ import { createPagination } from "./components/nav-pagination/nav-pagination.js"
 import { createSearchBar, handleSearch } from "./components/search-bar/search-bar.js";
 
 const cardContainer = document.querySelector('[data-js="card-container"]');
-const searchBarContainer = document.querySelector(
-  '[data-js="search-bar-container"]'
-);
+const searchBarContainer = document.querySelector('[data-js="search-bar-container"]');
 const navigation = document.querySelector('[data-js="navigation"]');
 
 // States
@@ -31,15 +29,16 @@ export async function fetchCharacters(pageIndex = 1, searchQuery=""){
     const response= await fetch(`https://rickandmortyapi.com/api/character?page=${pageIndex}&name=${searchQuery}`);
     const data= await response.json();
     console.log(data);
+
     maxPage = data.info.pages;
-    
-    pagination.innerHTML= `${pageIndex} / ${maxPage}`
+    pagination.innerHTML= `${pageIndex} / ${maxPage}`;
+
     nextButton.onclick = () =>handleNextClick(pageIndex);
     prevButton.onclick = () =>handlePrevClick(pageIndex);
-    const chars= data.results;
     
     setPagination(pageIndex, maxPage, prevButton, nextButton);
-
+    
+    const chars= data.results;
     chars.map(char => {
       const newCard= createCharacterCard(char)
       cardContainer.append(newCard)
