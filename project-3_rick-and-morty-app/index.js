@@ -1,29 +1,32 @@
 import { createCharacterCard } from "./components/card/card.js";
 import { setPagination } from "./components/nav-pagination/nav-pagination.js";
 import { createButton, handleNextClick, handlePrevClick } from "./components/nav-button/nav-button.js";
+import { createPagination } from "./components/nav-pagination/nav-pagination.js";
+import { createSearchBar, handleSearch } from "./components/search-bar/search-bar.js";
 
 const cardContainer = document.querySelector('[data-js="card-container"]');
 const searchBarContainer = document.querySelector(
   '[data-js="search-bar-container"]'
 );
 const navigation = document.querySelector('[data-js="navigation"]');
-const searchBar = document.querySelector('[data-js="search-bar"]');
-const pagination = document.querySelector('[data-js="pagination"]');
 
 // States
 let maxPage;
-let pageIndex = 1;
-let searchQuery = "";
+// let pageIndex = 1;
 
 const [nextButton, prevButton]= createButton();
+const pagination= createPagination();
+const searchBar= createSearchBar();
 
-navigation.append(nextButton)
 navigation.append(prevButton)
+navigation.append(pagination)
+navigation.append(nextButton)
+searchBarContainer.append(searchBar)
 
+searchBar.onsubmit= (e)=> handleSearch(e);
+await fetchCharacters();
 
-await fetchCharacters(pageIndex);
-
-export async function fetchCharacters(pageIndex){
+export async function fetchCharacters(pageIndex = 1, searchQuery=""){
   try {
     const response= await fetch(`https://rickandmortyapi.com/api/character?page=${pageIndex}&name=${searchQuery}`);
     const data= await response.json();

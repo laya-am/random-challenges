@@ -1,5 +1,12 @@
+
+export function createPagination(){
+  const pagination = document.createElement("span");
+  pagination.classList.add("navigation__pagination");
+  pagination.setAttribute("data-js","pagination");
+  return pagination;
+}
+
 export function setPagination(pageIndex, maxPage, prevButton, nextButton){
-  console.log("inside setPagination");  
   if(pageIndex >= maxPage){
     nextButton.setAttribute("disabled", "")
     }
