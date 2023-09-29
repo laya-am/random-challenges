@@ -14,4 +14,11 @@ test("image, title, artist, year, and genre are displayed", ()=>{
     expect(artist).toBeInTheDocument();
     expect(year).toBeInTheDocument();
     expect(genre).toBeInTheDocument();
-})
+});
+
+test("The favorite-button is displayed", ()=>{
+    render(<ArtPiecesDetails />);
+
+    const favButton = screen.getByRole("button", {name: /click to fav it!/i,});
+    expect(favButton).toBeInTheDocument();
+    });
