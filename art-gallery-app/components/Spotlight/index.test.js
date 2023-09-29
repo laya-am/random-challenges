@@ -11,5 +11,10 @@ test("renders the image, title, and artist", ()=>{
 
     const artist= screen.getByRole("heading", {name: /Edward Monet/i});
     expect(artist).toBeInTheDocument();
-
 })
+test("The favorite-button is displayed", ()=>{
+    render(<Spotlight />);
+
+    const favButton = screen.getByRole("button", {name: /click to fav it!/i,});
+    expect(favButton).toBeInTheDocument();
+    });
