@@ -15,7 +15,8 @@ export default function artPiecesDetailsPage({pieces}) {
       title={clickedPiece.name}
       artist={clickedPiece.artist}
       year={clickedPiece.year}
-      genre={clickedPiece.genre} />
+      genre={clickedPiece.genre}
+      slug={clickedPiece.slug} />
       <button onClick={() => router.push("/art-pieces")}>Back</button>
     </div>
   )
