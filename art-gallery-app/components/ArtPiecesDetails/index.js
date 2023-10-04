@@ -1,6 +1,8 @@
 import React from 'react'
 import Image from 'next/image'
 import FavoriteButton from '../FavoriteButton'
+import CommentForm from '../CommentForm'
+import Comments from '../Comments'
 
 export default function ArtPiecesDetails({image, title, artist, year, genre, slug, artPiecesInfo, setArtPiecesInfo}) {
     
@@ -12,6 +14,8 @@ export default function ArtPiecesDetails({image, title, artist, year, genre, slu
       <p>{year}</p>
       <p>{genre}</p>
       <FavoriteButton clickedPieceSlug={slug} artPiecesInfo={artPiecesInfo} setArtPiecesInfo={setArtPiecesInfo} />
+      <CommentForm commentedPieceSlug={slug} artPiecesInfo={artPiecesInfo} setArtPiecesInfo={setArtPiecesInfo}/>
+      <Comments  artPiecesInfo={artPiecesInfo} commentedPieceSlug={slug}/>
     </div>
   )
 }

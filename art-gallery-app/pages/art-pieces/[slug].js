@@ -2,7 +2,7 @@ import React from 'react'
 import ArtPiecesDetails from '@/components/ArtPiecesDetails'
 import { useRouter } from 'next/router'
 
-export default function artPiecesDetailsPage({pieces}) {
+export default function artPiecesDetailsPage({pieces, artPiecesInfo, setArtPiecesInfo}) {
     const router = useRouter();
     const {slug} = router.query;
 
@@ -16,7 +16,9 @@ export default function artPiecesDetailsPage({pieces}) {
       artist={clickedPiece.artist}
       year={clickedPiece.year}
       genre={clickedPiece.genre}
-      slug={clickedPiece.slug} />
+      slug={clickedPiece.slug}
+      artPiecesInfo={artPiecesInfo}
+      setArtPiecesInfo={setArtPiecesInfo} />
       <button onClick={() => router.push("/art-pieces")}>Back</button>
     </div>
   )

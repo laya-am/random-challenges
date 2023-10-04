@@ -1,7 +1,6 @@
 import GlobalStyle from "../styles";
 import Layout from "@/components/Layout";
 import useSWR from "swr";
-import { useState } from "react";
 import { useImmer } from 'use-immer';
 
 export default function App({ Component, pageProps }) {
