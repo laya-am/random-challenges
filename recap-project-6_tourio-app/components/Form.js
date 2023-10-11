@@ -25,6 +25,7 @@ export const Label = styled.label`
 `;
 
 export default function Form({ onSubmit, formName, defaultData }) {
+
   function handleSubmit(event) {
     event.preventDefault();
     const formData = new FormData(event.target);

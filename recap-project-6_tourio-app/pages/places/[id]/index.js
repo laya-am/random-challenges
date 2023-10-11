@@ -34,17 +34,16 @@ export default function DetailsPage() {
   const { isReady } = router;
   const { id } = router.query;
   const {
-    data: { place, comments } = {},
+    // data: { place, comments } = {},
+    data: place,
     isLoading,
     error,
   } = useSWR(`/api/places/${id}`);
-console.log(place);
   if (!isReady || isLoading || error) return <h2>Loading...</h2>;
 
   function deletePlace() {
     console.log("deleted?");
   }
-
   return (
     <>
       <Link href={'/'} passHref legacyBehavior>
@@ -76,7 +75,7 @@ console.log(place);
           Delete
         </StyledButton>
       </ButtonContainer>
-      <Comments locationName={place.name} comments={comments} />
+      {/* <Comments locationName={place.name} comments={comments} /> */}
     </>
   );
 }
